@@ -1,0 +1,52 @@
+﻿<Window x:Class="StudentRegistrationApplication.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:StudentRegistrationApplication"
+        xmlns:local1="clr-namespace:StudentRegistrationApplication.ViewModels" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Student Login" Height="532" Width="500" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+
+
+
+    <Window.DataContext>
+        <local1:LoginWindowVM/>
+    </Window.DataContext>
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#272537" Offset="0" />
+            <GradientStop Color="LightSteelBlue" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+
+    <Grid Background="White" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="371*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Margin="91,18,0,382" HorizontalAlignment="Left" Source="/Models/Images/loginimage.jpg" Height="100" Grid.Column="1" />
+        <Label Content="User Login" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,142,0,0" Foreground="Black" FontFamily="Cambria" FontWeight="SemiBold" FontSize="40" Grid.Column="1" />
+        <Label Content="Welcome back!" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,195,0,0" Foreground="Black" FontWeight="SemiBold" FontFamily="Cambria" FontSize="25" Grid.Column="1" />
+        <Label Content="Login to your existing account" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,228,0,0" Foreground="Black" FontWeight="SemiBold" FontSize="18" Grid.Column="1" />
+        <Label Content="Username:" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,283,0,0" FontFamily="Cambria" FontSize="20" FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Username" Grid.Row="0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,290,51,0" Height="20" Grid.Column="1"/>
+
+        <Label Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,333,0,0" FontFamily="Cambria" FontSize="20" FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="Password" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,340,51,0" Height="20" Grid.Column="1"/>
+
+        <Button Content="Login" Width="200" HorizontalAlignment="Left" Click="LoginButton_Click" Background="LightSeaGreen" Margin="41,400,0,59" Grid.Column="1"/>
+        
+        <TextBlock x:Name="lblResult" TextWrapping="Wrap" Margin="54,455,69,20" RenderTransformOrigin="0.499,2.103" FontWeight="Bold" Foreground="Red" Grid.Column="1"/>
+    </Grid>
+</Window>

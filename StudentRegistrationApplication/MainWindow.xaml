@@ -1,0 +1,73 @@
+﻿<Window x:Class="StudentRegistrationApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegistrationApplication" xmlns:local1="clr-namespace:StudentRegistrationApplication.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+
+    
+        <Grid>
+            <StackPanel Width="800" Height="100" 
+                    VerticalAlignment="Bottom"
+                    Background="LightSteelBlue" Orientation="Horizontal">
+                <Button Content="Add Student" 
+                        Command="{Binding AddStudentCommand}"  
+                        Style="{StaticResource navbutten}"/>
+                <Button Content="Edit Student Student"  Style="{StaticResource navbutten}" 
+                        Command="{Binding ExecuteEditStudentCommandCommand}"/>
+            <Button Content="Delete Student"  Style="{StaticResource navbutten}" 
+                        Command="{Binding DeleteCommand}"/>
+
+
+        </StackPanel>
+        <StackPanel Height="335" Background="#272537" VerticalAlignment="Top" Orientation="Vertical" >
+                <StackPanel Margin=" 40 0 0 0"  HorizontalAlignment="Left" Width="600"  
+                            Background="Transparent" Orientation="Horizontal" >
+
+                <TextBlock Text="FirstName" Foreground="White"  
+                           Style="{StaticResource Usertext}" />
+                <TextBlock Text="LastName" Foreground="White"   
+                           Style="{StaticResource Usertext}" />
+                <TextBlock Text="Age" Foreground="White"  
+                           Style="{StaticResource Usertext}" />
+                <TextBlock Text="DataOfBirth"  Foreground="White"  
+                           Style="{StaticResource Usertext}" />
+                <TextBlock Text="Gpa" Foreground="Blue"  Style="{StaticResource Usertext}" />
+
+                </StackPanel>
+            <ListView x:Name="Listview" Background="Transparent" Height="280" 
+                          ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
+                     SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <Border Background="Transparent" BorderBrush="Black" BorderThickness="1"
+                                Padding="0.1" CornerRadius="5" Width="600" Height="35" >
+                            <StackPanel Width="600"  Background="Transparent" Orientation="Horizontal" >
+
+                                <Image Width="30" Height="30" Margin="1" Source="{Binding Image}" />
+                                <TextBlock Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"  
+                                               Style="{StaticResource Usertext}" />
+                                <TextBlock Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"  
+                                               Style="{StaticResource Usertext}" />
+                                <TextBlock Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"  
+                                               Style="{StaticResource Usertext}" />
+                                <TextBlock Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"  
+                                               Style="{StaticResource Usertext}" />
+                                <TextBlock Text="{Binding GPA, UpdateSourceTrigger=PropertyChanged}"  
+                                               Style="{StaticResource Usertext}" />
+
+                            </StackPanel>
+
+                        </Border>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        </Grid>
+</Window>
